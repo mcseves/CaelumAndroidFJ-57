@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ListView
+        android:id="@+id/listaAlunos"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </ListView>
+    
+    <Button
+        android:stateListAnimator="@null"
+        android:id = "@+id/listaAlunosFloatingButton"
+        android:layout_height="53dp"
+        android:layout_width="53dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="16dp"
+        android:layout_marginRight="16dp"
+        android:background="@drawable/fundo"
+        android:elevation="6dp"
+        android:paddingBottom="16dp"
+        android:text="+"
+
+        android:textSize="40sp" />
+
+</RelativeLayout>
+
