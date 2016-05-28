@@ -23,6 +23,7 @@ import br.com.caelum.cadastro.modelo.Aluno;
 import br.com.caelum.cadastro.modelo.AlunoConverter;
 import br.com.caelum.cadastro.modelo.AlunoDAO;
 import br.com.caelum.cadastro.modelo.Permissao;
+import br.com.caelum.cadastro.support.WebClient;
 
 public class ListaAlunosActivity extends AppCompatActivity {
 
@@ -151,15 +152,19 @@ public class ListaAlunosActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        AlunoDAO dao = new AlunoDAO(this);
+        List<Aluno> alunos = dao.getLista();
+        dao.close();
+        String json = new AlunoConverter().toJson(alunos);
+
         switch (item.getItemId()){
-            case R.id.menu_enviar_notas:
-                AlunoDAO dao = new AlunoDAO(this);
-                List<Aluno> alunos = dao.getLista();
-                dao.close();
-
-                String json = new AlunoConverter().toJson(alunos);
-
+            case R.id.menu_mapa:
                 Toast.makeText(this,json,Toast.LENGTH_LONG).show();
+                return true;
+            case R.id.menu_enviar_notas:
+                WebClient client = new WebClient();
+                String resposta = client.post(json);
+                Toast.makeText(this,resposta,Toast.LENGTH_LONG).show();
                 return true;
         }
         return super.onOptionsItemSelected(item);

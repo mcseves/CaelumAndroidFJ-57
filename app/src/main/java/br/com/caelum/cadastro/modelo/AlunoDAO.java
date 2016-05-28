@@ -14,7 +14,7 @@ import java.util.List;
  */
 public class AlunoDAO extends SQLiteOpenHelper{
 
-    private static final int VERSAO = 4;
+    private static final int VERSAO = 5;
     private static final String TABEL = "Alunos";
     private static final String DATABASE = "CadastroCaelum";
 
@@ -31,7 +31,8 @@ public class AlunoDAO extends SQLiteOpenHelper{
                 + " telefone TEXT, "
                 + " endereco TEXT, "
                 + " site TEXT, "
-                + " nota REAL);";
+                + " nota REAL" +
+                "caminhoFoto TEXT);";
 
         database.execSQL(ddl);
     }

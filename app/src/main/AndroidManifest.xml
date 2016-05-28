@@ -17,7 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".FormularioActivity" android:windowSoftInputMode="stateHidden"></activity>
-        <receiver android:name=".modelo.SMSReceiver" android:enabled="true">
+        <receiver android:name=".receiver.SMSReceiver" android:enabled="true">
             <intent-filter>
                 <action android:name="android.provider.Telephony.SMS_RECEIVED"/>
             </intent-filter>
