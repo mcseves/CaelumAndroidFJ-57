@@ -54,7 +54,7 @@ public class ListaAlunosAdapter extends BaseAdapter {
         }
 
         TextView nome = (TextView) view.findViewById(R.id.item_nome);
-        nome.setText(aluno.toString());
+        nome.setText(aluno.getNome());
 
         Bitmap bm;
         if(aluno.getCaminhoFoto()!=null){
@@ -68,6 +68,16 @@ public class ListaAlunosAdapter extends BaseAdapter {
 
         ImageView foto = (ImageView) view.findViewById(R.id.item_foto);
         foto.setImageBitmap(bm);
+
+        TextView telefone = (TextView) view.findViewById(R.id.item_telefone);
+        if (telefone != null){
+            telefone.setText(aluno.getTelefone());
+        }
+
+        TextView site = (TextView) view.findViewById(R.id.item_site);
+        if (site!=null){
+            site.setText(aluno.getSite());
+        }
 
         return view;
     }
