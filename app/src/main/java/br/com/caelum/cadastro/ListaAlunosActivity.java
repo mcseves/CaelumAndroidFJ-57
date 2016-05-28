@@ -24,6 +24,7 @@ import br.com.caelum.cadastro.modelo.AlunoConverter;
 import br.com.caelum.cadastro.modelo.AlunoDAO;
 import br.com.caelum.cadastro.modelo.Permissao;
 import br.com.caelum.cadastro.support.WebClient;
+import task.EnviaAlunosTask;
 
 public class ListaAlunosActivity extends AppCompatActivity {
 
@@ -162,9 +163,7 @@ public class ListaAlunosActivity extends AppCompatActivity {
                 Toast.makeText(this,json,Toast.LENGTH_LONG).show();
                 return true;
             case R.id.menu_enviar_notas:
-                WebClient client = new WebClient();
-                String resposta = client.post(json);
-                Toast.makeText(this,resposta,Toast.LENGTH_LONG).show();
+                new EnviaAlunosTask(this).execute();
                 return true;
         }
         return super.onOptionsItemSelected(item);
