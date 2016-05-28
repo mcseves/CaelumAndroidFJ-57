@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.ContextMenu;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -19,6 +20,7 @@ import java.text.Normalizer;
 import java.util.List;
 
 import br.com.caelum.cadastro.modelo.Aluno;
+import br.com.caelum.cadastro.modelo.AlunoConverter;
 import br.com.caelum.cadastro.modelo.AlunoDAO;
 import br.com.caelum.cadastro.modelo.Permissao;
 
@@ -141,4 +143,25 @@ public class ListaAlunosActivity extends AppCompatActivity {
         this.listaAlunos.setAdapter(adapter);
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_lista_alunos, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.menu_enviar_notas:
+                AlunoDAO dao = new AlunoDAO(this);
+                List<Aluno> alunos = dao.getLista();
+                dao.close();
+
+                String json = new AlunoConverter().toJson(alunos);
+
+                Toast.makeText(this,json,Toast.LENGTH_LONG).show();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }
