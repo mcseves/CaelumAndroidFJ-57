@@ -14,7 +14,7 @@ import java.util.List;
  */
 public class AlunoDAO extends SQLiteOpenHelper{
 
-    private static final int VERSAO = 3;
+    private static final int VERSAO = 4;
     private static final String TABEL = "Alunos";
     private static final String DATABASE = "CadastroCaelum";
 
@@ -93,5 +93,14 @@ public class AlunoDAO extends SQLiteOpenHelper{
         SQLiteDatabase db = getWritableDatabase();
         String[] idAlterado = {aluno.getId().toString()};
         db.update(TABEL,values,"id=?",idAlterado);
+    }
+
+    public boolean isAluno (String telefone){
+        String[] params = {telefone};
+        Cursor rawQuery = getReadableDatabase().rawQuery("SELECT telefone FROM " + TABEL + " WHERE telefone = ?", params);
+        int total = rawQuery.getCount();
+        rawQuery.close();
+
+        return total > 0;
     }
 }
