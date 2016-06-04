@@ -16,6 +16,7 @@ import java.util.List;
 
 import br.com.caelum.cadastro.R;
 import br.com.caelum.cadastro.modelo.Prova;
+import br.com.caelum.cadastro.support.ProvasActivity;
 
 /**
  * Created by android6040 on 04/06/16.
@@ -47,7 +48,9 @@ public class ListaProvasFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> adapter, View view, int position, long id) {
                 Prova selecionada = (Prova) adapter.getItemAtPosition(position);
-                Toast.makeText(getActivity(),"Prova Selecionada: " + selecionada, Toast.LENGTH_LONG).show();
+//                Toast.makeText(getActivity(),"Prova Selecionada: " + selecionada, Toast.LENGTH_LONG).show();
+                ProvasActivity calendarioProvas = (ProvasActivity) getActivity();
+                calendarioProvas.selecionaProva(selecionada);
             }
         });
 

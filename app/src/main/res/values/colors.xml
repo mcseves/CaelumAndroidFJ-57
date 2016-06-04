@@ -5,4 +5,5 @@
     <color name="colorAccent">#FF4081</color>
     <color name="linhaPar">#97CBE2</color>
     <color name="linhaImpar">#76BDDD</color>
+    <color name="letra">#FFF</color>
 </resources>
