@@ -54,6 +54,7 @@ public class ProvasActivity extends AppCompatActivity {
 
             FragmentTransaction transaction = manager.beginTransaction();
             transaction.replace(R.id.provas_view, detalhesProva);
+            transaction.addToBackStack(null);
             transaction.commit();
         }
     }
