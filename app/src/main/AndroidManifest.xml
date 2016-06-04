@@ -21,13 +21,17 @@
                 <action android:name="android.provider.Telephony.SMS_RECEIVED"/>
             </intent-filter>
         </receiver>
-        <activity android:name=".support.ProvasActivity">
-        </activity>
+        <activity android:name=".support.ProvasActivity" />
+        <activity android:name=".MostraAlunosActivity" />
+
 
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="AIzaSyDN-cIUryG1H9OcPQPCtGHi2BFurz1ZkHc"/>
         <!--api key acima-->
+
+        <meta-data android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version"/>
     </application>
 
     <!--PERMISSOES-->
