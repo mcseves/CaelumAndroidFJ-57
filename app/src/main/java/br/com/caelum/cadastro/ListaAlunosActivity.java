@@ -23,6 +23,7 @@ import br.com.caelum.cadastro.modelo.Aluno;
 import br.com.caelum.cadastro.modelo.AlunoConverter;
 import br.com.caelum.cadastro.modelo.AlunoDAO;
 import br.com.caelum.cadastro.modelo.Permissao;
+import br.com.caelum.cadastro.support.ProvasActivity;
 import br.com.caelum.cadastro.support.WebClient;
 import task.EnviaAlunosTask;
 
@@ -164,6 +165,10 @@ public class ListaAlunosActivity extends AppCompatActivity {
                 return true;
             case R.id.menu_enviar_notas:
                 new EnviaAlunosTask(this).execute();
+                return true;
+            case R.id.menu_receber_provas:
+                Intent provas = new Intent(this, ProvasActivity.class);
+                startActivity(provas);
                 return true;
         }
         return super.onOptionsItemSelected(item);
